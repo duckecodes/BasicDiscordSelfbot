@@ -9,6 +9,8 @@ import time
 selfbot = commands.Bot(command_prefix="ducke", self_bot=True)
 selfbot.remove_command("help")
 
+# Runs the account token
+
 
 def runBot(token):
     selfbot.run(token, bot=False)
