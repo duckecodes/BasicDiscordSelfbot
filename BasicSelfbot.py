@@ -1,7 +1,6 @@
 # Imports
 
 from discord.ext import commands
-from colorama import Fore as C
 import time
 
 # Selfbot prefix for commands
@@ -22,8 +21,8 @@ def runBot(token):
 @selfbot.event
 async def on_connect():
     print(f""" 
-{C.PURPLE}Logged in as: {selfbot.user}{C.PURPLE}
-{C.PURPLE}Prefix: ducke{C.PURPLE}
+Logged in as: {selfbot.user}
+Prefix: ducke
 """)
 
 
@@ -33,11 +32,11 @@ async def on_connect():
 @selfbot.command()
 async def id(ctx):
     await ctx.message.delete()
-    await ctx.send(f"ID: {selfbot.id}")
+    await ctx.send(f"ID: {selfbot.user.id}")
     try:
-        print(f"{C.GREEN}[+] Successfully found id{C.GREEN}")
+        print("[+] Successfully found id")
     except:
-        print(f"{C.RED}[-] Unsuccessfully found id{C.RED}")
+        print("[-] Unsuccessfully found id")
         pass
 
 
@@ -48,9 +47,9 @@ async def id(ctx):
 async def ghost(ctx):
     await ctx.message.delete()
     try:
-        print(f"{C.GREEN}[+] Successfully ghost pinged{C.GREEN}")
+        print("[+] Successfully ghost pinged")
     except:
-        print(f"{C.RED}[-] Unsuccessfully ghost pinged{C.RED}")
+        print("[-] Unsuccessfully ghost pinged")
         pass
 
 
@@ -63,9 +62,9 @@ async def spam(ctx, amount: int, *, message):
     for i in range(amount):
         await ctx.send(message)
         try:
-            print(f"{C.GREEN}[+] Successfully spammed message{C.GREEN}")
+            print("[+] Successfully spammed message")
         except:
-            print(f"{C.RED}[-] Unsuccessfully spammed message{C.RED}")
+            print("[-] Unsuccessfully spammed message")
             pass
 
 
@@ -73,7 +72,7 @@ async def spam(ctx, amount: int, *, message):
 
 
 def run():
-    print(f"{C.RED}Token: {C.RED}")
+    print("Token: ")
     token = str(input(f"> "))
     time.sleep(3)
     runBot(token)
